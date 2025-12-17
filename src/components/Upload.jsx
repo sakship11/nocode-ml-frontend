@@ -1,4 +1,3 @@
-import axios from "axios";
 import StepCard from "./StepCard";
 import API from "../api";
 
