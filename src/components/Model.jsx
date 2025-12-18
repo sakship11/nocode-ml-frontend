@@ -19,6 +19,7 @@ export default function Model({
 
     try {
       setError(null); // Clear previous error
+      setAccuracy(null);
       const res = await API.post("/train", {
         model,
       });
@@ -26,6 +27,7 @@ export default function Model({
       setAccuracy(res.data.accuracy);
       setStatus((s) => ({ ...s, model: true }));
     } catch (err) {
+      setAccuracy(null);
       console.error("Training failed:", err);
       const errorMessage = err.response?.data?.error || "Training failed";
       setError(errorMessage);
